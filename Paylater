@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract PayLaterContract {
+
+    mapping(uint256 => uint256) public cart;  
+    uint256 public totalProductsPurchased;
+
+    function addToCart(uint256 _productId, uint256 _price) external {
+      
+        assert(cart[_productId] == 0);
+        require(_price % 100 == 0, "Pay later option not available for this product");
+        cart[_productId] = _price;
+    }
+
+    function PurchaseReward(uint256 _productsPurchased) external {
+        
+        if (_productsPurchased > 25) {
+            revert("Super coins of 500 credited to your wallet");
+        }
+
+        totalProductsPurchased += _productsPurchased;
+    }
+
+    
+}
