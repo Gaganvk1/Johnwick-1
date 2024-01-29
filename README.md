@@ -6,11 +6,11 @@ The PayLaterContract is a simple smart contract written in Solidity, a programmi
 
 ## Contract Functions
 
-### 1.addToCart(uint256 _productId, uint256 _price) external
+ 1.addToCart(uint256 _productId, uint256 _price) external
 
 This function allows users to add products to the shopping cart by specifying the product ID and price. The price must be divisible by 100, indicating that the "Pay later" option is available for this product. The function ensures that a product with the same ID has not been added previously.
 
-### 2.PurchaseReward(uint256 _productsPurchased) external
+ 2.PurchaseReward(uint256 _productsPurchased) external
 
 Users can trigger this function to update the total number of products purchased. If the total products purchased exceed 25, the transaction will be reverted with a message indicating that 500 "Super coins" have been credited to the user's wallet.
 
